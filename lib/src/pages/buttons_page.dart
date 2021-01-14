@@ -152,36 +152,39 @@ class ButtonsPage extends StatelessWidget {
   }
 
   Widget _createRoundedButton(Color color, IconData icon, String text) {
-    return ClipRRect(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-        child: Container(
-          height: 160.0,
-          margin: EdgeInsets.all(15.0),
-          decoration: BoxDecoration(
+    return Padding(
+      padding: EdgeInsets.all(15.0),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20.0),
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+          child: Container(
+            height: 160.0,
+            decoration: BoxDecoration(
               color: Color.fromRGBO(62, 66, 107, 0.7),
-              borderRadius: BorderRadius.circular(20.0)),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              SizedBox(height: 5.0),
-              CircleAvatar(
-                backgroundColor: color,
-                radius: 35.0,
-                child: Icon(
-                  icon,
-                  color: Colors.white,
-                  size: 30.0,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                SizedBox(height: 5.0),
+                CircleAvatar(
+                  backgroundColor: color,
+                  radius: 35.0,
+                  child: Icon(
+                    icon,
+                    color: Colors.white,
+                    size: 30.0,
+                  ),
                 ),
-              ),
-              Text(
-                text,
-                style: TextStyle(
-                  color: color,
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: color,
+                  ),
                 ),
-              ),
-              SizedBox(height: 5.0)
-            ],
+                SizedBox(height: 5.0)
+              ],
+            ),
           ),
         ),
       ),
